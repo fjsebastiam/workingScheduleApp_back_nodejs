@@ -7,7 +7,8 @@ const logger = log4js.getLogger('general');
 function findUser(email) {
     if( email =="test@test.url"){
         //passwordTest1
-        return "$2y$10$nADtU4zj4Z99fYb7r9Duhux4rXxEtHiL.f.sM.5ksxgdVmislECsy"
+        //$2b$10$881enOKgS4Ou4MuTYZ9NbeqvGzE5JhNBGg0Is5CvoZuYlDzPJo1ii
+        return "$2b$10$881enOKgS4Ou4MuTYZ9NbeqvGzE5JhNBGg0Is5CvoZuYlDzPJo1ii"
     }else{
         return "";
     }

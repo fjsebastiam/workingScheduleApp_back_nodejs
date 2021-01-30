@@ -3,6 +3,7 @@ const express = require('express');
 const passport = require('passport');
 const constants = require('./constants.js');
 const authRoutes = require('./routes/authRoutes.js');
+const encrytation = require('./config/encryptation.js');
 require('./Config/passport.js');
 
 //constants
@@ -28,6 +29,8 @@ app.use(passport.initialize());
 app.use('/auth',authRoutes);
 
 app.timeout = constants.SERVER_TIMEOUT;
-app.listen(constants.PORTSERVER, function () {
+app.listen(constants.PORTSERVER, async function () {
     logger.info('Server listening on port:'+constants.PORTSERVER);
+    let encrytationPasswordTest= await encrytation.hashPassword("passwordTest1");
+    logger.debug('Password test hash:'+encrytationPasswordTest);
   });
