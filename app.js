@@ -3,8 +3,9 @@ const express = require('express');
 const passport = require('passport');
 const constants = require('./constants.js');
 const authRoutes = require('./routes/authRoutes.js');
+const dataRoutes = require('./routes/dataRoutes.js');
 const encrytation = require('./config/encryptation.js');
-require('./Config/passport.js');
+require('./config/passport.js');
 
 //constants
 const app = express();
@@ -27,6 +28,9 @@ app.use(passport.initialize());
 
 //Configure  entdpoints for authentication
 app.use('/auth',authRoutes);
+
+//Configure  entdpoints for data
+app.use('/data',dataRoutes);
 
 app.timeout = constants.SERVER_TIMEOUT;
 app.listen(constants.PORTSERVER, async function () {
